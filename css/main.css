@@ -7,6 +7,7 @@
     font-size: 170%;
 }
 #description {
+    margin-top: 20px;
     text-align: center;
 }
 #actualPart{
@@ -17,16 +18,20 @@
     font-size: 100%;
 }
 #partDescription {
-    margin-top: 0;
+    margin: 0;
     margin-left: 10%;
     width: 80%;
     font-size: 150%;
 }
 #notice {
-    color: green
+    margin:0;
+    color: green;
+    font-size: 200%;
 }
 #lifes {
-    color: red
+    color: red;
+    font-size: 150%;
+    margin: 0;
 }
 #defaultCanvas0 {
     display: block;
