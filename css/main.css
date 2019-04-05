@@ -1,3 +1,31 @@
+#titlePage{
+    text-transform: uppercase;
+    text-align: center;
+}
+#instructionsH3, #InstructionsP{
+    display: inline;
+    font-size: 170%;
+}
+#description {
+    text-align: center;
+}
+#actualPart{
+    display: inline-block;
+    color: white;
+    background: black;
+    padding: 15px;
+    font-size: 100%;
+}
+#partDescription {
+    margin-top: 0;
+    margin-left: 10%;
+    width: 80%;
+    font-size: 150%;
+}
 #notice {
     color: green
+}
+#defaultCanvas0 {
+    display: block;
+    margin: auto;
 }
