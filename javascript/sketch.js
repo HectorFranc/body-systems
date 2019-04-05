@@ -31,10 +31,12 @@ class Box {
 // My variables
 var IMG = 'img/neurona.jpg'
 var boxesOriginal = [
-  new Box(20, 20, 'Hola', 'Esta es una descripcion hola'),
-  new Box(400, 10, 'Bye', 'Esta es una descripcion bye'),
-  new Box(200, 80, 'Siiii', 'Esta es una descripcion siii'),
-  new Box(300, 150, 'Jejeje', 'Esta es una descripcion jejeje')
+  new Box(175, 35, 'Dendritas', 'Descripción de dendritas', 250, 50),
+  new Box(310, 165, 'Axón', 'Descripción de Axón', 250, 50),
+  new Box(195, 360, 'Núcleo', 'Descripción de Núcleo', 250, 50),
+  new Box(78, 415, 'Cuerpo celular', 'Descripción de Cuerpo celular', 285, 50),
+  new Box(420, 420, 'Mielina', 'Descripción de Mielina', 250, 50),
+  new Box(610, 300, 'Sinapsis', 'Descripción de Sinapsis', 250, 50)
 ]
 var boxesCopy = boxesOriginal.slice(0, boxesOriginal.length)
 boxesCopy.sort(() => Math.random() - 0.5)
