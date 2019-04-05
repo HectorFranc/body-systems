@@ -26,7 +26,19 @@ class Box {
     return (mousX >= this.x && mousX <= this.x + this.width) && (mousY >= this.y && mousY <= this.y + this.height)
   }
   isCorrectAnswer (mousX, mousY, answer) {
-    return this.isInThisBox(mousX, mousY) && this.answer === answer
+    if (this.isInThisBox(mousX, mouseY)) {
+      if (this.answer === answer) {
+        return true
+      } else {
+        lifes--
+        if (lifes >= 0) {
+          document.getElementById('lifes').innerHTML = '❤ '.repeat(lifes)
+        }
+        return false
+      }
+    } else {
+      return false
+    }
   }
 }
 
@@ -56,6 +68,17 @@ function setup () {
   document.getElementById('lifes').innerHTML = '❤ '.repeat(lifes)
 }
 
+function mouseClicked () {
+  if (imchoosing) {
+    for (let i = 0; i < boxesOriginal.length; i++) {
+      if (boxesOriginal[i].isCorrectAnswer(mouseX, mouseY, actualchoosing)) {
+        boxesOriginal[i].hasBeenAnswered = true
+        imchoosing = false
+      }
+    }
+  }
+}
+
 function draw () {
   if(lifes >= 0) {
     if (!imchoosing) {
@@ -72,22 +95,9 @@ function draw () {
         document.getElementById('notice').innerHTML = '¡¡¡GANASTE!!!'
         document.getElementById('actualPart').style.display = 'none'
         document.getElementById('partDescription').style.display = 'none'
+        document.getElementById('defaultCanvas0').style.display = 'none'
       }
       imchoosing = true
-    } else {
-      if (mouseIsPressed) {
-        for (let i = 0; i < boxesOriginal.length; i++) {
-          if (boxesOriginal[i].isCorrectAnswer(mouseX, mouseY, actualchoosing)) {
-            boxesOriginal[i].hasBeenAnswered = true
-            imchoosing = false
-          } else {
-            lifes--
-            if (lifes >= 0) {
-              document.getElementById('lifes').innerHTML = '❤ '.repeat(lifes)
-            }
-          } 
-        }
-      }
     }
   } else {
     // Game Over
@@ -95,5 +105,6 @@ function draw () {
     document.getElementById('notice').style.color = 'red'
     document.getElementById('actualPart').style.display = 'none'
     document.getElementById('partDescription').style.display = 'none'
+    document.getElementById('defaultCanvas0').style.display = 'none'
   }
 }
