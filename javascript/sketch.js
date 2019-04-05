@@ -1,11 +1,11 @@
 var globalAnswer = []
 // My own functions
 class Box {
-  constructor (posX, posY, answer, description) {
+  constructor (posX, posY, answer, description, width=80, height=25) {
     this.x = posX
     this.y = posY
-    this.width = 80
-    this.height = 25
+    this.width = width
+    this.height = height
     this.answer = answer
     this.hasBeenAnswered = false
     this.description = description
