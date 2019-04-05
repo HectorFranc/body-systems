@@ -19,7 +19,7 @@ class Box {
     if (this.hasBeenAnswered) {
       fill(0, 0, 0)
       textSize(this.textSize)
-      text(this.answer, this.x + 5, this.y + this.height / 2)
+      text(this.answer, this.x + 5, this.y + this.height / 2 + 5)
     }
   }
   isInThisBox (mousX, mousY) {
