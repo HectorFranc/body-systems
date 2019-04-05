@@ -29,7 +29,7 @@ class Box {
 }
 
 // My variables
-var IMG = 'img/test.jpg'
+var IMG = 'https://i.pinimg.com/originals/12/18/71/121871080cc510e8b89ef2cca4ab1492.jpg'
 var boxesOriginal = [
   new Box(20, 20, 'Hola', 'Esta es una descripcion hola'),
   new Box(400, 10, 'Bye', 'Esta es una descripcion bye'),
@@ -47,12 +47,12 @@ function preload () {
 }
 
 function setup () {
-  createCanvas(1000, 500)
+  createCanvas(16 * 55, 9 * 55)
 }
 
 function draw () {
   if (!imchoosing) {
-    image(IMG, 0, 0)
+    image(IMG, 0, 0, 16 * 55, 9 * 55)
     for (let i = 0; i < boxesOriginal.length; i++) {
       boxesOriginal[i].draw()
     }
