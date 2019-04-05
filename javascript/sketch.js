@@ -36,6 +36,7 @@ var boxesOriginal = [
   new Box(300, 150, 'Jejeje')
 ]
 var boxesCopy = boxesOriginal.slice(0, boxesOriginal.length)
+boxesCopy.sort(() => Math.random() - 0.5)
 var imchoosing = false
 var actualchoosing;
 
