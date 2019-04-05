@@ -29,7 +29,7 @@ class Box {
 }
 
 // My variables
-var IMG = 'https://i.pinimg.com/originals/12/18/71/121871080cc510e8b89ef2cca4ab1492.jpg'
+var IMG = 'img/neurona.jpg'
 var boxesOriginal = [
   new Box(20, 20, 'Hola', 'Esta es una descripcion hola'),
   new Box(400, 10, 'Bye', 'Esta es una descripcion bye'),
