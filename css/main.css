@@ -25,6 +25,9 @@
 #notice {
     color: green
 }
+#lifes {
+    color: red
+}
 #defaultCanvas0 {
     display: block;
     margin: auto;

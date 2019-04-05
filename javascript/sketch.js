@@ -44,6 +44,7 @@ var boxesCopy = boxesOriginal.slice(0, boxesOriginal.length)
 boxesCopy.sort(() => Math.random() - 0.5)
 var imchoosing = false
 var actualchoosing;
+var lifes = 3;
 
 // P5js functions
 function preload () {
@@ -52,34 +53,47 @@ function preload () {
 
 function setup () {
   createCanvas(16 * 55, 9 * 55)
+  document.getElementById('lifes').innerHTML = '❤ '.repeat(lifes)
 }
 
 function draw () {
-  if (!imchoosing) {
-    image(IMG, 0, 0, 16 * 55, 9 * 55)
-    for (let i = 0; i < boxesOriginal.length; i++) {
-      boxesOriginal[i].draw()
-    }
-    if (boxesCopy.length > 0) {
-      let boxesCopyInstance = boxesCopy.pop()
-      actualchoosing = boxesCopyInstance.answer
-      document.getElementById('actualPart').innerHTML = actualchoosing
-      document.getElementById('partDescription').innerHTML = boxesCopyInstance.description
-    } else {
-      document.getElementById('notice').innerHTML = '¡¡¡GANASTE!!!'
-      document.getElementById('actualPart').style.display = 'none'
-      document.getElementById('partDescription').style.display = 'none'
-    }
-    imchoosing = true
-  } else {
-    if (mouseIsPressed) {
+  if(lifes >= 0) {
+    if (!imchoosing) {
+      image(IMG, 0, 0, 16 * 55, 9 * 55)
       for (let i = 0; i < boxesOriginal.length; i++) {
-        if (boxesOriginal[i].isCorrectAnswer(mouseX, mouseY, actualchoosing)) {
-          boxesOriginal[i].hasBeenAnswered = true
-          document.getElementById('notice').innerHTML += '✔ '
-          imchoosing = false
+        boxesOriginal[i].draw()
+      }
+      if (boxesCopy.length > 0) {
+        let boxesCopyInstance = boxesCopy.pop()
+        actualchoosing = boxesCopyInstance.answer
+        document.getElementById('actualPart').innerHTML = actualchoosing
+        document.getElementById('partDescription').innerHTML = boxesCopyInstance.description
+      } else {
+        document.getElementById('notice').innerHTML = '¡¡¡GANASTE!!!'
+        document.getElementById('actualPart').style.display = 'none'
+        document.getElementById('partDescription').style.display = 'none'
+      }
+      imchoosing = true
+    } else {
+      if (mouseIsPressed) {
+        for (let i = 0; i < boxesOriginal.length; i++) {
+          if (boxesOriginal[i].isCorrectAnswer(mouseX, mouseY, actualchoosing)) {
+            boxesOriginal[i].hasBeenAnswered = true
+            imchoosing = false
+          } else {
+            lifes--
+            if (lifes >= 0) {
+              document.getElementById('lifes').innerHTML = '❤ '.repeat(lifes)
+            }
+          } 
         }
       }
     }
+  } else {
+    // Game Over
+    document.getElementById('notice').innerHTML = 'GAME OVER'
+    document.getElementById('notice').style.color = 'red'
+    document.getElementById('actualPart').style.display = 'none'
+    document.getElementById('partDescription').style.display = 'none'
   }
 }
