@@ -10,13 +10,6 @@
     margin-top: 20px;
     text-align: center;
 }
-#actualPart{
-    display: inline-block;
-    color: white;
-    background: black;
-    padding: 15px;
-    font-size: 100%;
-}
 #partDescription {
     margin: 0;
     margin-left: 10%;

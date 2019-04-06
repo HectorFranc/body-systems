@@ -79,11 +79,9 @@ function initializer (IMG, boxesOriginal, IMGWidth, IMGHeight) {
         if (boxesCopy.length > 0) {
           let boxesCopyInstance = boxesCopy.pop()
           actualchoosing = boxesCopyInstance.answer
-          document.getElementById('actualPart').innerHTML = actualchoosing
           document.getElementById('partDescription').innerHTML = boxesCopyInstance.description
         } else {
           document.getElementById('notice').innerHTML = '¡¡¡GANASTE!!!'
-          document.getElementById('actualPart').style.display = 'none'
           document.getElementById('partDescription').style.display = 'none'
           document.getElementById('defaultCanvas0').style.display = 'none'
         }
@@ -93,7 +91,6 @@ function initializer (IMG, boxesOriginal, IMGWidth, IMGHeight) {
       // Game Over
       document.getElementById('notice').innerHTML = 'GAME OVER'
       document.getElementById('notice').style.color = 'red'
-      document.getElementById('actualPart').style.display = 'none'
       document.getElementById('partDescription').style.display = 'none'
       document.getElementById('defaultCanvas0').style.display = 'none'
     }
