@@ -1,6 +1,6 @@
 // Global variables
 var lifes = 3;
-var preload, setup, mouseClicked, draw;
+var preload, setup, mouseClicked, drawNext;
 
 // My own functions
 class Box {
@@ -44,20 +44,59 @@ class Box {
   }
 }
 
-function initializer (IMG, boxesOriginal, IMGWidth, IMGHeight) {
+function initializer (IMG, boxesOriginal, IMGWidth, IMGHeight, thereWasAPastLevel, isThereNextLevel, nextLevelConfig = () => {}) {
   // Local variables
   let boxesCopy = boxesOriginal.slice(0, boxesOriginal.length)
   boxesCopy.sort(() => Math.random() - 0.5)
   let imchoosing = false
   let actualchoosing;
-  // P5js functions
-  preload = () => {IMG = loadImage(IMG)}
 
+  // P5js functions
   setup = () => {
     createCanvas(IMGWidth, IMGHeight)
     document.getElementById('lifes').innerHTML = '❤ '.repeat(lifes)
+    drawNext = () => {
+      if(lifes >= 0) {
+        if (!imchoosing) {
+          image(IMG, 0, 0, IMGWidth, IMGHeight)
+          for (let i = 0; i < boxesOriginal.length; i++) {
+            boxesOriginal[i].draw()
+          }
+          if (boxesCopy.length > 0) {
+            let boxesCopyInstance = boxesCopy.pop()
+            actualchoosing = boxesCopyInstance.answer
+            document.getElementById('partDescription').innerHTML = boxesCopyInstance.description
+          } else {
+            if (isThereNextLevel) {
+              // Next Level
+              initializer(...nextLevelConfig)
+            } else {
+              document.getElementById('notice').innerHTML = '¡¡¡GANASTE!!!'
+              document.getElementById('partDescription').style.display = 'none'
+              document.getElementById('defaultCanvas0').style.display = 'none'
+            }
+          }
+          imchoosing = true
+        }
+      } else {
+        // Game Over
+        document.getElementById('notice').innerHTML = 'GAME OVER'
+        document.getElementById('notice').style.color = 'red'
+        document.getElementById('partDescription').style.display = 'none'
+        document.getElementById('defaultCanvas0').style.display = 'none'
+      }
+    }
+    drawNext()
   }
 
+  preload = () => {
+    if(thereWasAPastLevel){
+      IMG = loadImage(IMG, setup)
+    } else {
+      IMG = loadImage(IMG)
+    }
+  }
+  
   mouseClicked = () => {
     if (imchoosing) {
       for (let i = 0; i < boxesOriginal.length; i++) {
@@ -67,42 +106,40 @@ function initializer (IMG, boxesOriginal, IMGWidth, IMGHeight) {
         }
       }
     }
+    drawNext()
   }
 
-  draw = () => {
-    if(lifes >= 0) {
-      if (!imchoosing) {
-        image(IMG, 0, 0, IMGWidth, IMGHeight)
-        for (let i = 0; i < boxesOriginal.length; i++) {
-          boxesOriginal[i].draw()
-        }
-        if (boxesCopy.length > 0) {
-          let boxesCopyInstance = boxesCopy.pop()
-          actualchoosing = boxesCopyInstance.answer
-          document.getElementById('partDescription').innerHTML = boxesCopyInstance.description
-        } else {
-          document.getElementById('notice').innerHTML = '¡¡¡GANASTE!!!'
-          document.getElementById('partDescription').style.display = 'none'
-          document.getElementById('defaultCanvas0').style.display = 'none'
-        }
-        imchoosing = true
-      }
-    } else {
-      // Game Over
-      document.getElementById('notice').innerHTML = 'GAME OVER'
-      document.getElementById('notice').style.color = 'red'
-      document.getElementById('partDescription').style.display = 'none'
-      document.getElementById('defaultCanvas0').style.display = 'none'
-    }
+  if (thereWasAPastLevel) {
+    preload()
   }
 }
 
 // Calling
-initializer('img/neurona.jpg', [
+level3 = ['img/neurona.jpg', [
   new Box(175, 35, 'Dendritas', 'Descripción de dendritas', 250, 50, 30),
   new Box(310, 165, 'Axón', 'Descripción de Axón', 250, 50, 30),
   new Box(195, 360, 'Núcleo', 'Descripción de Núcleo', 250, 50, 30),
   new Box(78, 415, 'Cuerpo celular', 'Descripción de Cuerpo celular', 285, 50, 30),
   new Box(420, 420, 'Mielina', 'Descripción de Mielina', 250, 50, 30),
   new Box(610, 300, 'Sinapsis', 'Descripción de Sinapsis', 250, 50, 30)
-], 16 * 55, 9 * 55)
+], 16 * 55, 9 * 55, true, false]
+
+level2 = ['img/test.jpg', [
+  new Box(175, 35, 'Dendritas', 'Descripción de dendritas', 250, 50, 30),
+  new Box(310, 165, 'Axón', 'Descripción de Axón', 250, 50, 30),
+  new Box(195, 360, 'Núcleo', 'Descripción de Núcleo', 250, 50, 30),
+  new Box(78, 415, 'Cuerpo celular', 'Descripción de Cuerpo celular', 285, 50, 30),
+  new Box(420, 420, 'Mielina', 'Descripción de Mielina', 250, 50, 30),
+  new Box(610, 300, 'Sinapsis', 'Descripción de Sinapsis', 250, 50, 30)
+], 16 * 55, 9 * 55, true, true, level3]
+
+level1 = ['img/neurona.jpg', [
+    new Box(175, 35, 'Dendritas', 'Descripción de dendritas', 250, 50, 30),
+    new Box(310, 165, 'Axón', 'Descripción de Axón', 250, 50, 30),
+    new Box(195, 360, 'Núcleo', 'Descripción de Núcleo', 250, 50, 30),
+    new Box(78, 415, 'Cuerpo celular', 'Descripción de Cuerpo celular', 285, 50, 30),
+    new Box(420, 420, 'Mielina', 'Descripción de Mielina', 250, 50, 30),
+    new Box(610, 300, 'Sinapsis', 'Descripción de Sinapsis', 250, 50, 30)
+  ], 16 * 55, 9 * 55, false, true, level2]
+
+initializer(...level1)
