@@ -1,6 +1,6 @@
 // Global variables
-var lifes = 3;
-var preload, setup, mouseClicked, drawNext;
+var lifes = 3
+var preload, setup, mouseClicked, drawNext
 
 // My own functions
 class Box {
@@ -49,7 +49,7 @@ function initializer (IMG, boxesOriginal, IMGWidth, IMGHeight, thereWasAPastLeve
   let boxesCopy = boxesOriginal.slice(0, boxesOriginal.length)
   boxesCopy.sort(() => Math.random() - 0.5)
   let imchoosing = false
-  let actualchoosing;
+  let actualchoosing
 
   // P5js functions
   setup = () => {
@@ -115,31 +115,20 @@ function initializer (IMG, boxesOriginal, IMGWidth, IMGHeight, thereWasAPastLeve
 }
 
 // Calling
-level3 = ['img/neurona.jpg', [
-  new Box(175, 35, 'Dendritas', 'Descripción de dendritas', 250, 50, 30),
-  new Box(310, 165, 'Axón', 'Descripción de Axón', 250, 50, 30),
-  new Box(195, 360, 'Núcleo', 'Descripción de Núcleo', 250, 50, 30),
-  new Box(78, 415, 'Cuerpo celular', 'Descripción de Cuerpo celular', 285, 50, 30),
-  new Box(420, 420, 'Mielina', 'Descripción de Mielina', 250, 50, 30),
-  new Box(610, 300, 'Sinapsis', 'Descripción de Sinapsis', 250, 50, 30)
+let level2 = ['img/circulatorio.jpg', [
+  new Box(670, 80, 'Corazón', 'Descripción de Corazón', 200, 50, 30),
+  new Box(50, 302, 'Venas', 'Descripción de Venas', 200, 50, 30),
+  new Box(675, 210, 'Arterias', 'Descripción de Arterias', 190, 50, 30),
+  new Box(75, 85, 'Vasos \nCapilares', 'Descripción de Vasos Capilares', 150, 100, 30)
 ], 16 * 55, 9 * 55, true, false]
 
-level2 = ['img/test.jpg', [
+let level1 = ['img/neurona.jpg', [
   new Box(175, 35, 'Dendritas', 'Descripción de dendritas', 250, 50, 30),
   new Box(310, 165, 'Axón', 'Descripción de Axón', 250, 50, 30),
   new Box(195, 360, 'Núcleo', 'Descripción de Núcleo', 250, 50, 30),
   new Box(78, 415, 'Cuerpo celular', 'Descripción de Cuerpo celular', 285, 50, 30),
   new Box(420, 420, 'Mielina', 'Descripción de Mielina', 250, 50, 30),
   new Box(610, 300, 'Sinapsis', 'Descripción de Sinapsis', 250, 50, 30)
-], 16 * 55, 9 * 55, true, true, level3]
-
-level1 = ['img/neurona.jpg', [
-    new Box(175, 35, 'Dendritas', 'Descripción de dendritas', 250, 50, 30),
-    new Box(310, 165, 'Axón', 'Descripción de Axón', 250, 50, 30),
-    new Box(195, 360, 'Núcleo', 'Descripción de Núcleo', 250, 50, 30),
-    new Box(78, 415, 'Cuerpo celular', 'Descripción de Cuerpo celular', 285, 50, 30),
-    new Box(420, 420, 'Mielina', 'Descripción de Mielina', 250, 50, 30),
-    new Box(610, 300, 'Sinapsis', 'Descripción de Sinapsis', 250, 50, 30)
-  ], 16 * 55, 9 * 55, false, true, level2]
+], 16 * 55, 9 * 55, false, true, level2]
 
 initializer(...level1)
