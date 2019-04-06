@@ -1,4 +1,7 @@
-var globalAnswer = []
+// Global variables
+var lifes = 3;
+var preload, setup, mouseClicked, draw;
+
 // My own functions
 class Box {
   constructor (posX, posY, answer, description, width=80, height=25, textSize=16) {
@@ -10,7 +13,6 @@ class Box {
     this.hasBeenAnswered = false
     this.description = description
     this.textSize = textSize
-    globalAnswer.push(this.answer)
   }
   draw () {
     fill(255, 255, 255)
@@ -42,69 +44,68 @@ class Box {
   }
 }
 
-// My variables
-var IMG = 'img/neurona.jpg'
-var boxesOriginal = [
+function initializer (IMG, boxesOriginal, IMGWidth, IMGHeight) {
+  // Local variables
+  let boxesCopy = boxesOriginal.slice(0, boxesOriginal.length)
+  boxesCopy.sort(() => Math.random() - 0.5)
+  let imchoosing = false
+  let actualchoosing;
+  // P5js functions
+  preload = () => {IMG = loadImage(IMG)}
+
+  setup = () => {
+    createCanvas(IMGWidth, IMGHeight)
+    document.getElementById('lifes').innerHTML = '❤ '.repeat(lifes)
+  }
+
+  mouseClicked = () => {
+    if (imchoosing) {
+      for (let i = 0; i < boxesOriginal.length; i++) {
+        if (boxesOriginal[i].isCorrectAnswer(mouseX, mouseY, actualchoosing)) {
+          boxesOriginal[i].hasBeenAnswered = true
+          imchoosing = false
+        }
+      }
+    }
+  }
+
+  draw = () => {
+    if(lifes >= 0) {
+      if (!imchoosing) {
+        image(IMG, 0, 0, IMGWidth, IMGHeight)
+        for (let i = 0; i < boxesOriginal.length; i++) {
+          boxesOriginal[i].draw()
+        }
+        if (boxesCopy.length > 0) {
+          let boxesCopyInstance = boxesCopy.pop()
+          actualchoosing = boxesCopyInstance.answer
+          document.getElementById('actualPart').innerHTML = actualchoosing
+          document.getElementById('partDescription').innerHTML = boxesCopyInstance.description
+        } else {
+          document.getElementById('notice').innerHTML = '¡¡¡GANASTE!!!'
+          document.getElementById('actualPart').style.display = 'none'
+          document.getElementById('partDescription').style.display = 'none'
+          document.getElementById('defaultCanvas0').style.display = 'none'
+        }
+        imchoosing = true
+      }
+    } else {
+      // Game Over
+      document.getElementById('notice').innerHTML = 'GAME OVER'
+      document.getElementById('notice').style.color = 'red'
+      document.getElementById('actualPart').style.display = 'none'
+      document.getElementById('partDescription').style.display = 'none'
+      document.getElementById('defaultCanvas0').style.display = 'none'
+    }
+  }
+}
+
+// Calling
+initializer('img/neurona.jpg', [
   new Box(175, 35, 'Dendritas', 'Descripción de dendritas', 250, 50, 30),
   new Box(310, 165, 'Axón', 'Descripción de Axón', 250, 50, 30),
   new Box(195, 360, 'Núcleo', 'Descripción de Núcleo', 250, 50, 30),
   new Box(78, 415, 'Cuerpo celular', 'Descripción de Cuerpo celular', 285, 50, 30),
   new Box(420, 420, 'Mielina', 'Descripción de Mielina', 250, 50, 30),
   new Box(610, 300, 'Sinapsis', 'Descripción de Sinapsis', 250, 50, 30)
-]
-var boxesCopy = boxesOriginal.slice(0, boxesOriginal.length)
-boxesCopy.sort(() => Math.random() - 0.5)
-var imchoosing = false
-var actualchoosing;
-var lifes = 3;
-
-// P5js functions
-function preload () {
-  IMG = loadImage(IMG)
-}
-
-function setup () {
-  createCanvas(16 * 55, 9 * 55)
-  document.getElementById('lifes').innerHTML = '❤ '.repeat(lifes)
-}
-
-function mouseClicked () {
-  if (imchoosing) {
-    for (let i = 0; i < boxesOriginal.length; i++) {
-      if (boxesOriginal[i].isCorrectAnswer(mouseX, mouseY, actualchoosing)) {
-        boxesOriginal[i].hasBeenAnswered = true
-        imchoosing = false
-      }
-    }
-  }
-}
-
-function draw () {
-  if(lifes >= 0) {
-    if (!imchoosing) {
-      image(IMG, 0, 0, 16 * 55, 9 * 55)
-      for (let i = 0; i < boxesOriginal.length; i++) {
-        boxesOriginal[i].draw()
-      }
-      if (boxesCopy.length > 0) {
-        let boxesCopyInstance = boxesCopy.pop()
-        actualchoosing = boxesCopyInstance.answer
-        document.getElementById('actualPart').innerHTML = actualchoosing
-        document.getElementById('partDescription').innerHTML = boxesCopyInstance.description
-      } else {
-        document.getElementById('notice').innerHTML = '¡¡¡GANASTE!!!'
-        document.getElementById('actualPart').style.display = 'none'
-        document.getElementById('partDescription').style.display = 'none'
-        document.getElementById('defaultCanvas0').style.display = 'none'
-      }
-      imchoosing = true
-    }
-  } else {
-    // Game Over
-    document.getElementById('notice').innerHTML = 'GAME OVER'
-    document.getElementById('notice').style.color = 'red'
-    document.getElementById('actualPart').style.display = 'none'
-    document.getElementById('partDescription').style.display = 'none'
-    document.getElementById('defaultCanvas0').style.display = 'none'
-  }
-}
+], 16 * 55, 9 * 55)
