@@ -119,7 +119,7 @@ let level2 = ['img/circulatorio.jpg', [
   new Box(670, 80, 'Corazón', 'Es el órgano principal del aparato circulatorio, impulsa la sangre a través de las arterias.', 200, 50, 30),
   new Box(50, 302, 'Venas', 'Es un vaso sanguíneo que conduce la sangre desde los capilares hasta el corazón. Generalmente, se caracterizan porque contienen sangre desoxigenada.', 200, 50, 30),
   new Box(675, 210, 'Arterias', 'Es cada uno de los vasos que llevan la sangre con oxígeno desde el corazón hacia los capilares del cuerpo.', 190, 50, 30),
-  new Box(75, 85, 'Vasos \nCapilares', 'Son vasos sanguíneos que surgen como pequeñas ramificaciones de las arterias a lo largo de todo el cuerpo y cerca de la superficie de la piel. Llevan nutrientes y oxígeno a la célula y traen de ésta los productos de desecho.', 150, 100, 30)
+  new Box(75, 85, 'Vasos\nCapilares', 'Son vasos sanguíneos que surgen como pequeñas ramificaciones de las arterias a lo largo de todo el cuerpo y cerca de la superficie de la piel. Llevan nutrientes y oxígeno a la célula y traen de ésta los productos de desecho.', 150, 100, 30)
 ], 16 * 55, 9 * 55, true, false]
 
 let level1 = ['img/neurona.jpg', [
@@ -128,6 +128,8 @@ let level1 = ['img/neurona.jpg', [
   new Box(195, 360, 'Núcleo', 'Orgánulo que contiene la mayor parte del material genético celular, organizado en varias moléculas extraordinariamente largas y lineales de ADN.', 250, 50, 30),
   new Box(78, 415, 'Soma', 'Es el cuerpo celular de la neurona, el cual contiene el núcleo rodeado por el citoplasma.', 285, 50, 30),
   new Box(420, 420, 'Mielina', 'Sustancia que envuelve y protege los axones de ciertas células nerviosas y cuya función principal es la de aumentar la velocidad de transmisión del impulso nervioso.', 250, 50, 30),
+  new Box(420, 90, 'Nodo de Ranvier', 'Interrupciones que ocurren a intervalos regulares a lo largo de la longitud del axón en la vaina de mielina que lo envuelve.', 250, 50, 30),
+  new Box(480, 360, 'Célula de Schwann', 'Células que recubren a las prolongaciones (axones) de las neuronas formándoles una vaina aislante de mielina.', 250, 50, 27),
   new Box(610, 300, 'Sinapsis', 'Región de comunicación entre el axón de una neurona y las dendritas o el cuerpo de otra.', 250, 50, 30)
 ], 16 * 55, 9 * 55, false, true, level2]
 
