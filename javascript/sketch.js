@@ -116,19 +116,19 @@ function initializer (IMG, boxesOriginal, IMGWidth, IMGHeight, thereWasAPastLeve
 
 // Calling
 let level2 = ['img/circulatorio.jpg', [
-  new Box(670, 80, 'Corazón', 'Descripción de Corazón', 200, 50, 30),
-  new Box(50, 302, 'Venas', 'Descripción de Venas', 200, 50, 30),
-  new Box(675, 210, 'Arterias', 'Descripción de Arterias', 190, 50, 30),
-  new Box(75, 85, 'Vasos \nCapilares', 'Descripción de Vasos Capilares', 150, 100, 30)
+  new Box(670, 80, 'Corazón', 'Es el órgano principal del aparato circulatorio, impulsa la sangre a través de las arterias.', 200, 50, 30),
+  new Box(50, 302, 'Venas', 'Es un vaso sanguíneo que conduce la sangre desde los capilares hasta el corazón. Generalmente, se caracterizan porque contienen sangre desoxigenada.', 200, 50, 30),
+  new Box(675, 210, 'Arterias', 'Es cada uno de los vasos que llevan la sangre con oxígeno desde el corazón hacia los capilares del cuerpo.', 190, 50, 30),
+  new Box(75, 85, 'Vasos \nCapilares', 'Son vasos sanguíneos que surgen como pequeñas ramificaciones de las arterias a lo largo de todo el cuerpo y cerca de la superficie de la piel. Llevan nutrientes y oxígeno a la célula y traen de ésta los productos de desecho.', 150, 100, 30)
 ], 16 * 55, 9 * 55, true, false]
 
 let level1 = ['img/neurona.jpg', [
-  new Box(175, 35, 'Dendritas', 'Descripción de dendritas', 250, 50, 30),
-  new Box(310, 165, 'Axón', 'Descripción de Axón', 250, 50, 30),
-  new Box(195, 360, 'Núcleo', 'Descripción de Núcleo', 250, 50, 30),
-  new Box(78, 415, 'Cuerpo celular', 'Descripción de Cuerpo celular', 285, 50, 30),
-  new Box(420, 420, 'Mielina', 'Descripción de Mielina', 250, 50, 30),
-  new Box(610, 300, 'Sinapsis', 'Descripción de Sinapsis', 250, 50, 30)
+  new Box(175, 35, 'Dendrita', 'Son terminales de las neuronas y sirven como receptores de impulsos nerviosos provenientes desde un axón perteneciente a otra neurona.', 250, 50, 30),
+  new Box(310, 165, 'Axón', 'Es una prolongación de las neuronas especializadas en conducir el impulso nervioso desde el cuerpo celular o soma hacia otra célula.', 250, 50, 30),
+  new Box(195, 360, 'Núcleo', 'Orgánulo que contiene la mayor parte del material genético celular, organizado en varias moléculas extraordinariamente largas y lineales de ADN.', 250, 50, 30),
+  new Box(78, 415, 'Soma', 'Es el cuerpo celular de la neurona, el cual contiene el núcleo rodeado por el citoplasma.', 285, 50, 30),
+  new Box(420, 420, 'Mielina', 'Sustancia que envuelve y protege los axones de ciertas células nerviosas y cuya función principal es la de aumentar la velocidad de transmisión del impulso nervioso.', 250, 50, 30),
+  new Box(610, 300, 'Sinapsis', 'Región de comunicación entre el axón de una neurona y las dendritas o el cuerpo de otra.', 250, 50, 30)
 ], 16 * 55, 9 * 55, false, true, level2]
 
 initializer(...level1)
