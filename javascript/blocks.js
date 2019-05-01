@@ -4,8 +4,8 @@ var HWIDTH = 638 // Use instead width, for define a position on canvas
 var HHEIGHT = 384 // Use instead height, for define a position on canvas
 
 function setup () {
-    // Create canvas in the corner top-left
-    createCanvas(683,384).position(0, 0)
+    // Create canvas with resolution 638x384
+    createCanvas(HWIDTH, HHEIGHT)
 }
 
 function draw () {
