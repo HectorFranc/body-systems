@@ -116,13 +116,12 @@ function initializer (IMG, boxesOriginal, IMGWidth, IMGHeight, thereWasAPastLeve
 
 // Calling
 let level3 = ['img/respiratorio.jpg', [
-  new Box(20, 20, 'Answer', 'Description'),
-  new Box(20, 20, 'Answer', 'Description'),
-  new Box(20, 20, 'Answer', 'Description'),
-  new Box(20, 20, 'Answer', 'Description'),
-  new Box(20, 20, 'Answer', 'Description'),
-  new Box(20, 20, 'Answer', 'Description')
-], 16*55, 9*55, true, false]
+  new Box(40, 45, 'Faringe', 'Conducto de paredes musculosas y membranosas que comunica las fosas nasales, las trompas de Eustaquio y la laringe.', 65),
+  new Box(30, 100, 'Tráquea', 'Conducto que empieza en la laringe y desciende por delante del esófago hasta la mitad del pecho, donde se bifurca formando los bronquios.'),
+  new Box(30, 170, 'Bronquios', 'Conductos en que se bifurca la tráquea y que se van subdividiendo a su vez en ramificaciones cada vez más finas en los pulmones.'),
+  new Box(340, 95, 'Fosa Nasal', 'Son dos cavidades que constituyen el tramo inicial del aparato respiratorio, y sirven para la entrada y la salida de aire.', 90),
+  new Box(360, 200, 'Laringe', 'Órgano del conducto respiratorio, situado entre la tráquea y la faringe; su principal función es la de proteger la entrada de las vías respiratorias inferiores e interviene en la producción de la voz.')
+], 450, 450, true, false]
 
 let level2 = ['img/circulatorio.jpg', [
   new Box(670, 80, 'Corazón', 'Es el órgano principal del aparato circulatorio, impulsa la sangre a través de las arterias.', 200, 50, 30),
