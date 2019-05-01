@@ -115,12 +115,21 @@ function initializer (IMG, boxesOriginal, IMGWidth, IMGHeight, thereWasAPastLeve
 }
 
 // Calling
+let level3 = ['img/respiratorio.jpg', [
+  new Box(20, 20, 'Answer', 'Description'),
+  new Box(20, 20, 'Answer', 'Description'),
+  new Box(20, 20, 'Answer', 'Description'),
+  new Box(20, 20, 'Answer', 'Description'),
+  new Box(20, 20, 'Answer', 'Description'),
+  new Box(20, 20, 'Answer', 'Description')
+], 16*55, 9*55, true, false]
+
 let level2 = ['img/circulatorio.jpg', [
   new Box(670, 80, 'Corazón', 'Es el órgano principal del aparato circulatorio, impulsa la sangre a través de las arterias.', 200, 50, 30),
   new Box(50, 302, 'Venas', 'Es un vaso sanguíneo que conduce la sangre desde los capilares hasta el corazón. Generalmente, se caracterizan porque contienen sangre desoxigenada.', 200, 50, 30),
   new Box(675, 210, 'Arterias', 'Es cada uno de los vasos que llevan la sangre con oxígeno desde el corazón hacia los capilares del cuerpo.', 190, 50, 30),
   new Box(75, 85, 'Vasos\nCapilares', 'Son vasos sanguíneos que surgen como pequeñas ramificaciones de las arterias a lo largo de todo el cuerpo y cerca de la superficie de la piel. Llevan nutrientes y oxígeno a la célula y traen de ésta los productos de desecho.', 150, 100, 30)
-], 16 * 55, 9 * 55, true, false]
+], 16 * 55, 9 * 55, true, true, level3]
 
 let level1 = ['img/neurona.jpg', [
   new Box(175, 35, 'Dendrita', 'Son terminales de las neuronas y sirven como receptores de impulsos nerviosos provenientes desde un axón perteneciente a otra neurona.', 250, 50, 30),
