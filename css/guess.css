@@ -30,3 +30,20 @@
     display: block;
     margin: auto;
 }
+
+/* Color body background styles*/
+.level1 {
+    background: rgb(150, 255, 100) 
+}
+
+.level2 {
+    background: rgb(255, 255, 100) 
+}
+
+.level3 {
+    background: rgb(255, 100, 100) 
+}
+
+.endgame {
+    background: rgb(132, 196, 255)
+}

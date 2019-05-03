@@ -44,7 +44,9 @@ class Box {
   }
 }
 
-function initializer (IMG, boxesOriginal, IMGWidth, IMGHeight, thereWasAPastLevel, isThereNextLevel, nextLevelConfig = () => {}) {
+function initializer (level, IMG, boxesOriginal, IMGWidth, IMGHeight, thereWasAPastLevel, isThereNextLevel, nextLevelConfig = () => {}) {
+  // Body color background styles
+  document.getElementsByTagName('body')[0].className = 'level'+level
   // Local variables
   let boxesCopy = boxesOriginal.slice(0, boxesOriginal.length)
   boxesCopy.sort(() => Math.random() - 0.5)
@@ -71,6 +73,7 @@ function initializer (IMG, boxesOriginal, IMGWidth, IMGHeight, thereWasAPastLeve
               // Next Level
               initializer(...nextLevelConfig)
             } else {
+              document.getElementsByTagName('body')[0].className = 'endgame'
               document.getElementById('notice').innerHTML = '¡¡¡GANASTE!!!'
               document.getElementById('partDescription').style.display = 'none'
               document.getElementById('defaultCanvas0').style.display = 'none'
@@ -80,6 +83,7 @@ function initializer (IMG, boxesOriginal, IMGWidth, IMGHeight, thereWasAPastLeve
         }
       } else {
         // Game Over
+        document.getElementsByTagName('body')[0].className = 'endgame'
         document.getElementById('notice').innerHTML = 'GAME OVER'
         document.getElementById('notice').style.color = 'red'
         document.getElementById('partDescription').style.display = 'none'
@@ -115,7 +119,7 @@ function initializer (IMG, boxesOriginal, IMGWidth, IMGHeight, thereWasAPastLeve
 }
 
 // Calling
-let level3 = ['img/respiratorio.jpg', [
+let level3 = [3,'img/respiratorio.png', [
   new Box(40, 45, 'Faringe', 'Conducto de paredes musculosas y membranosas que comunica las fosas nasales, las trompas de Eustaquio y la laringe.', 65),
   new Box(30, 100, 'Tráquea', 'Conducto que empieza en la laringe y desciende por delante del esófago hasta la mitad del pecho, donde se bifurca formando los bronquios.'),
   new Box(30, 170, 'Bronquios', 'Conductos en que se bifurca la tráquea y que se van subdividiendo a su vez en ramificaciones cada vez más finas en los pulmones.'),
@@ -123,14 +127,14 @@ let level3 = ['img/respiratorio.jpg', [
   new Box(360, 200, 'Laringe', 'Órgano del conducto respiratorio, situado entre la tráquea y la faringe; su principal función es la de proteger la entrada de las vías respiratorias inferiores e interviene en la producción de la voz.')
 ], 450, 450, true, false]
 
-let level2 = ['img/circulatorio.jpg', [
+let level2 = [2, 'img/circulatorio.png', [
   new Box(670, 80, 'Corazón', 'Es el órgano principal del aparato circulatorio, impulsa la sangre a través de las arterias.', 200, 50, 30),
   new Box(50, 302, 'Venas', 'Es un vaso sanguíneo que conduce la sangre desde los capilares hasta el corazón. Generalmente, se caracterizan porque contienen sangre desoxigenada.', 200, 50, 30),
   new Box(675, 210, 'Arterias', 'Es cada uno de los vasos que llevan la sangre con oxígeno desde el corazón hacia los capilares del cuerpo.', 190, 50, 30),
   new Box(75, 85, 'Vasos\nCapilares', 'Son vasos sanguíneos que surgen como pequeñas ramificaciones de las arterias a lo largo de todo el cuerpo y cerca de la superficie de la piel. Llevan nutrientes y oxígeno a la célula y traen de ésta los productos de desecho.', 150, 100, 30)
 ], 16 * 55, 9 * 55, true, true, level3]
 
-let level1 = ['img/neurona.jpg', [
+let level1 = [1, 'img/neurona.png', [
   new Box(175, 35, 'Dendrita', 'Son terminales de las neuronas y sirven como receptores de impulsos nerviosos provenientes desde un axón perteneciente a otra neurona.', 250, 50, 30),
   new Box(310, 165, 'Axón', 'Es una prolongación de las neuronas especializadas en conducir el impulso nervioso desde el cuerpo celular o soma hacia otra célula.', 250, 50, 30),
   new Box(195, 360, 'Núcleo', 'Orgánulo que contiene la mayor parte del material genético celular, organizado en varias moléculas extraordinariamente largas y lineales de ADN.', 250, 50, 30),
