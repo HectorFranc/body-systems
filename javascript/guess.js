@@ -1,3 +1,9 @@
+// Is required a width min 900 px, if not alert about it
+if (window.innerWidth < 900){
+  document.body.style.display = 'none'
+  alert('Su ventana es demasiado pequeña, porfavor intente desde otro dispositivo o redimensione su ventana.')
+}
+
 // Global variables
 var lifes = 3
 var preload, setup, mouseClicked, drawNext
@@ -115,6 +121,15 @@ function initializer (level, IMG, boxesOriginal, IMGWidth, IMGHeight, thereWasAP
 
   if (thereWasAPastLevel) {
     preload()
+  }
+}
+
+function windowResized () {
+  if(window.innerWidth >= 900) {
+    document.body.style.display = 'block'
+  } else {
+    document.body.style.display = 'none'
+    alert('Su ventana es demasiado pequeña, porfavor intente desde otro dispositivo o redimensione su ventana.')
   }
 }
 
