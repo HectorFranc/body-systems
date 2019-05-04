@@ -4,7 +4,7 @@
 }
 #instructionsH3, #InstructionsP{
     display: inline;
-    font-size: 170%;
+    font-size: 2vw;
 }
 #description {
     margin-top: 20px;
@@ -14,7 +14,7 @@
     margin: 0;
     margin-left: 10%;
     width: 80%;
-    font-size: 150%;
+    font-size: 2vw;
 }
 #notice {
     margin:0;
@@ -29,6 +29,23 @@
 #defaultCanvas0 {
     display: block;
     margin: auto;
+    width: 75%;
+    height: 100% !important;
+}
+
+@media screen and (max-width: 700px) {
+    #instructionsH3, #InstructionsP{
+        font-size: 6vw;
+    }
+    #partDescription {
+        font-size: 7.5vw;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #defaultCanvas0 {
+        width: 99.5% !important;
+    }
 }
 
 /* Color body background styles*/
