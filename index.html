@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Índice</title>
+    <title>Sistemas del cuerpo humano | Adivinar</title>
+    <style> body {padding: 0; margin: 0;} </style>
+    <script src="scripts/p5.min.js"></script>
+    <script src="scripts/p5.dom.min.js"></script>
+    <script src="scripts/p5.sound.min.js"></script>
+    <link rel="stylesheet" href="css/guess.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126695086-3"></script>
     <script>
@@ -14,15 +18,18 @@
 
     gtag('config', 'UA-126695086-3');
     </script>
-</head>
-<body>
-    <main>
-        <div>
-            <ul>
-                <li><a href="guess.html" target="_blank" rel="noopener noreferrer">Adivinar</a></li>
-                <li><a href="blocks.html" target="_blank" rel="noopener noreferrer">Bloques</a></li>
-            </ul>
-        </div>
-    </main>
-</body>
+  </head>
+  <body>
+    <h1 id="titlePage">Sistemas del cuerpo humano</h1>
+    <div>
+      <h3 id="instructionsH3">Instrucciones:</h3>
+      <p id="InstructionsP">Encuentra lo que se indica a continuación y selecciona el recuadro que le corresponde en la imagen de abajo.</p>
+    </div>
+    <div id="description">
+      <p id="partDescription"></p>
+      <p id="notice"></p>
+      <p id="lifes"></p>
+  </div>
+  <script src="javascript/guess.js"></script>
+  </body>
 </html>
